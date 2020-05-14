@@ -4,4 +4,5 @@ django-cors-headers
 django-rest-auth
 djangorestframework
 psycopg2
-social-auth-app-django
+python-twitter
+oauth2

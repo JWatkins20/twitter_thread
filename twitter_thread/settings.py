@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 	'twitter_thread',
 	'social_django',
+	'user',
 ]
 
 MIDDLEWARE = [
@@ -77,9 +78,10 @@ TEMPLATES = [
     },
 ]
 
+
 AUTHENTICATION_BACKENDS = (
 	'social_core.backends.twitter.TwitterOAuth',
-    'django.contrib.auth.backends.ModelBackend',
+    'twitter_thread.auth_backends.CustomUserModelBackend',
 )
 
 WSGI_APPLICATION = 'twitter_thread.wsgi.application'
@@ -90,12 +92,8 @@ WSGI_APPLICATION = 'twitter_thread.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
-		'USER': 'postgres',
-		'PASSWORD': 'noseeyes97',
-		'HOST': 'localhost',
-		'PORT': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+		'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -118,6 +116,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'user.User'
+CUSTOM_USER_MODEL = 'user.User'
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
@@ -132,6 +132,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+TWITTER_CONSUMER_KEY = 'ThbUXe9Wlk5ipSfPSDfZ6Fs7G'
+TWITTER_CONSUMER_SECRET = 'xE9saubR7fXfWtVDtup7eKsA8dldyH553t9ocHtyojDsKcj9O7'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
