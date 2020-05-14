@@ -8,3 +8,4 @@ python-twitter
 oauth2
 social-auth-app-django
 gunicorn
+dj-database-url
