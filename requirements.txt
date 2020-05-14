@@ -6,4 +6,5 @@ djangorestframework
 psycopg2
 python-twitter
 oauth2
+social-auth-app-django
 gunicorn
