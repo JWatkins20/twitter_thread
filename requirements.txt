@@ -6,3 +6,4 @@ djangorestframework
 psycopg2
 python-twitter
 oauth2
+gunicorn
