@@ -26,7 +26,7 @@ SECRET_KEY = ')06hv%aoo66q0gg7pu_05ew(bzg1@@*3deh=&aw!4oxeq8h5+m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['twit-thread.herokuapp.com']
 
 
 # Application definition
