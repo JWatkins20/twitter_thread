@@ -134,6 +134,7 @@ USE_TZ = True
 
 TWITTER_CONSUMER_KEY = 'ThbUXe9Wlk5ipSfPSDfZ6Fs7G'
 TWITTER_CONSUMER_SECRET = 'xE9saubR7fXfWtVDtup7eKsA8dldyH553t9ocHtyojDsKcj9O7'
+BASE_URL = "https://twit-thread.herokuapp.com/"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/

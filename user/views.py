@@ -34,7 +34,7 @@ def home(request):
 def threeleggedauth1(request):
 	request_token_url = 'https://api.twitter.com/oauth/request_token'
 	authorize_url = 'https://api.twitter.com/oauth/authorize'
-	callback = "http://localhost:8000" + "/posting-approved"
+	callback = settings.BASE_URL + "posting-approved"
 
 	consumer = oauth.Consumer(settings.TWITTER_CONSUMER_KEY, settings.TWITTER_CONSUMER_SECRET)
 	client = oauth.Client(consumer)
