@@ -1,1 +1,1 @@
-web: gunicorn twitter_threads.wsgi
+web: gunicorn twitter_thread.wsgi
