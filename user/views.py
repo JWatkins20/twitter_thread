@@ -8,6 +8,7 @@ from django.conf import settings
 import oauth2 as oauth
 import urllib.parse
 import twitter
+from django.views.generic import CreateView
 
 @login_required
 def home(request):
@@ -16,6 +17,8 @@ def home(request):
 	form = ThreadForm(request.POST)
 	if not request.user.post_permissions:
 		return render(request, 'core/permissions.html')
+
+
 	if request.method == 'POST':
 		if form.is_valid():
 			text = form.cleaned_data['text']
@@ -28,7 +31,14 @@ def home(request):
 	else:
 		form = ThreadForm()
 
+
+
 	return render(request, 'core/home.html', {'form': form})
+
+def ThreadCreateView(CreateView):
+	model = Thread
+	fields = ('text')
+
 
 @login_required
 def threeleggedauth1(request):
@@ -42,7 +52,6 @@ def threeleggedauth1(request):
 	resp, content = client.request(request_token_url, "POST", body=urllib.parse.urlencode({'oauth_callback': callback}))
 
 	request_token = dict(urllib.parse.parse_qsl(content.decode("utf-8")))
-
 	request.user.request_token = request_token['oauth_token']
 	request.user.request_token_secret = request_token['oauth_token_secret']
 	request.user.save()
@@ -84,7 +93,6 @@ def posttweets(user, text):
 					  consumer_secret=settings.TWITTER_CONSUMER_SECRET,
 					  access_token_key=user.access_token,
 					  access_token_secret=user.access_token_secret)
-
 	if len(text) > 280:
 		last_id = -1
 		while 280 < len(text):

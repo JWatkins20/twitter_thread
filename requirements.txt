@@ -9,3 +9,4 @@ oauth2
 social-auth-app-django
 gunicorn
 dj-database-url
+django-crispy-forms

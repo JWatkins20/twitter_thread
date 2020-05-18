@@ -1,4 +1,8 @@
+{% extends 'base.html' %}
+
 {% block content %}
   <h2>Login</h2>
-  <a href="{% url 'social:begin' 'twitter' %}">Login with Twitter</a><br>
+  <a href="{% url 'social:begin' 'twitter' %}">
+    <button class="btn btn-success">Login with Twitter</button>
+  </a>
 {% endblock %}

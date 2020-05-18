@@ -1,12 +1,10 @@
+{% extends 'base.html' %}
 
 {% block content %}
-    <h2>Homepage</h2>
-    <p>Hello {{ user.username|safe }}!</p>
+    <h4>Write your thread below...</h4>
     <form action="/" method="post">
         {% csrf_token %}
         {{ form.as_p }}
-{#        <label for="thread_text">Your name: </label>#}
-{#        <input id="thread_text" type="text" name="thread_text" value="{{ text.value }}">#}
-        <input type="submit" value="OK">
+        <button class="btn btn-primary" type="submit">Submit your thread.</button>
     </form>
 {% endblock %}

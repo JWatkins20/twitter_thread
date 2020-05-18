@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <p>Hello we need your permission to access your twitter account to post to it? Could you do that for us🥺? </p>
+{% extends 'base.html' %}
 
-</head>
-     <a href="{% url 'threeleggedauth1' %}">Click here to give all your permissions to me, you can trust me, haha😎</a>
+{% block content %}
 <body>
-
+    <p> In order to use this service, Twitter permissions will have to be given to us in order to post threads to your account. </p>
+    <a href="{% url 'threeleggedauth1' %}">
+        <button class="btn btn-success">Agree</button>
+    </a>
 </body>
-</html>
+{% endblock %}

@@ -26,7 +26,7 @@ SECRET_KEY = ')06hv%aoo66q0gg7pu_05ew(bzg1@@*3deh=&aw!4oxeq8h5+m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['twit-thread.herokuapp.com']
+ALLOWED_HOSTS = ['twit-thread.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 	'twitter_thread',
 	'social_django',
 	'user',
+	'crispy_forms'
 ]
 
 MIDDLEWARE = [
@@ -97,9 +98,11 @@ DATABASES = {
     }
 }
 
+BASE_URL = "http://localhost:8000/"
 if 'DATABASE_URL' in os.environ:
-    import dj_database_url
-    DATABASES = {'default': dj_database_url.config()}
+	BASE_URL = "https://twit-thread.herokuapp.com/"
+	import dj_database_url
+	DATABASES = {'default': dj_database_url.config()}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -137,7 +140,8 @@ USE_TZ = True
 
 TWITTER_CONSUMER_KEY = 'ThbUXe9Wlk5ipSfPSDfZ6Fs7G'
 TWITTER_CONSUMER_SECRET = 'xE9saubR7fXfWtVDtup7eKsA8dldyH553t9ocHtyojDsKcj9O7'
-BASE_URL = "https://twit-thread.herokuapp.com/"
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
