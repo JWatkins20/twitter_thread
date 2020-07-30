@@ -3,7 +3,7 @@ from django.urls import path, re_path
 from django.conf.urls import url, include
 from django.contrib.auth import views as authviews
 from .views import *
-# posting-approved?oauth_token=MAEYQgAAAAABEUB_AAABcg-Zv2w&oauth_verifier=LeV3fbCLf5lwfNS8hYuKIOCaQfXgEdbX
+
 urlpatterns = [
 	url(r'^$', home, name='home'),
 	url(r'^login/$', authviews.LoginView.as_view(), name='login'),

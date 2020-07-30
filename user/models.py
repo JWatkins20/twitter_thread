@@ -5,8 +5,8 @@ class Message(models.Model):
 	text = models.TextField(max_length=280)
 
 class Thread(models.Model):
-	title = models.TextField()
-	text = models.TextField(max_length=255)
+	title = models.TextField(default='title')
+	text = models.TextField(max_length=255, default='')
 	messages = models.ManyToManyField(Message, blank=True)
 
 class User(AbstractUser):

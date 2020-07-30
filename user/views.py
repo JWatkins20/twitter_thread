@@ -23,13 +23,14 @@ def home(request):
 		if form.is_valid():
 			text = form.cleaned_data['text']
 			new_thread = Thread(text=text)
-			posttweets(current_user, text)
+			if 'save' not in request.POST:
+				posttweets(current_user, text)
 			new_thread.save()
 			current_user.threads.add(new_thread)
 
 			return HttpResponseRedirect('/',  RequestContext(request))
 	else:
-		form = ThreadForm()
+		form = ThreadForm(text='bitch')
 
 
 

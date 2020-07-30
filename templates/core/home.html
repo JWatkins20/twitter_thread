@@ -5,6 +5,7 @@
     <form action="/" method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button class="btn btn-primary" type="submit">Submit your thread.</button>
+        <button class="btn btn-primary">Post your thread</button>
+        <button class="btn btn-outline-success" name="save">Save</button>
     </form>
 {% endblock %}
